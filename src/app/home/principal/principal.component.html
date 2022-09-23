@@ -1,0 +1,70 @@
+<app-loading *ngIf="isLoading"></app-loading>
+<div class="row">
+  <div class="column">
+    <h3 class="title">Listado de Productos</h3>
+  </div>
+</div>
+<div class="row">
+    <div class="column">
+      <div>
+        <form class="nosubmit" [formGroup]="searchForm">
+          <input class="nosubmit"
+                 type="search"
+                 formControlName="name"
+                 placeholder="Buscar">
+        </form>
+      </div>
+    </div>
+    <div class="column">
+      <div class="align-right px-15">
+        <button (click)="addPokemon()" class="btn"><i class="fa fa-plus"></i> Nuevo</button>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="column">
+      <table class="content-table">
+        <thead>
+        <tr>
+          <th class="text-center">Bicicleta</th>
+          <th class="text-center">Imagen</th>
+          <th class="text-center">Precio</th>
+          <th class="text-center">Stock</th>
+          <th class="text-center">Mayorista</th>
+          <th class="text-center">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngIf="productos$ | async as productos; else loading">
+          <ng-container *ngIf="productos.length; else noItems">
+            <tr *ngFor="let producto of productos">
+              <td>{{producto.name}}</td>
+              <td class="text-center">
+                <img width="250px" src="{{producto.url}}" [alt]="producto.name">
+              </td>
+              <td>{{producto.price}}</td>
+              <td>{{producto.stock}}</td>
+              <td>{{producto.priceMayor}}</td>
+              <td class="text-center">
+                <button (click)="editProducto(producto)" type="button" class="icon-btn"><i class="fa fa-edit fa-3x"></i></button>
+                <button (click)="deleteProducto(producto.id)" type="button" class="icon-btn"><i class="fa fa-trash fa-3x"></i></button>
+              </td>
+            </tr>
+          </ng-container>
+          <ng-template #noItems>
+            <tr>
+              <td colspan="5" class="text-center">No existen pokemones</td>
+            </tr>
+          </ng-template>
+        </ng-container>
+        <ng-template #loading>
+          <tr>
+            <td colspan="5" class="text-center">Cargando...</td>
+          </tr>
+        </ng-template>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>

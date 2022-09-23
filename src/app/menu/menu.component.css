@@ -1,0 +1,24 @@
+.posicion{
+    position: fixed;
+    background-color: #34445c;
+    width: max(8%, 200px);
+    height: 100%;
+    padding: 8px;
+    color: #fff; 
+}
+.center{
+    text-align:center
+}
+
+.centerMenu{
+    padding: 1em;
+}
+
+.lateral{
+    box-sizing: border-box;
+    width: max(8%, 200px);
+    display: inline-block;
+    position: fixed;
+    padding-top: 30px;
+    background-color: rgb(9, 44, 119);
+}

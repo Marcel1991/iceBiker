@@ -1,18 +1,27 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BikeService } from './services/bike.service';
+import { MenuComponent } from './menu/menu.component';
+import { ContenidoComponent } from './contenido/contenido.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    ContenidoComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HomeModule
   ],
-  providers: [],
+  providers: [BikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
