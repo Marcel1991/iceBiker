@@ -7,7 +7,7 @@ const routes: Routes = [
   { 
     path: "inicio", component: InicioComponent  },
   { 
-    path: "principal", component: PrincipalComponent },
+    path: "principal", component: PrincipalComponent }
 ];
 
 @NgModule({
