@@ -38,7 +38,7 @@
         <tbody>
         <ng-container *ngIf="productos$ | async as productos; else loading">
           <ng-container *ngIf="productos.length; else noItems">
-            <tr *ngFor="let producto of productos">
+            <tr *ngFor="let producto of productos" >
               <td>{{producto.name}}</td>
               <td class="text-center">
                 <img width="250px" src="{{producto.url}}" [alt]="producto.name">
